@@ -1,0 +1,201 @@
+
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage{geometry}
+\usepackage{pgffor}
+\geometry{
+    a4paper,
+    left=20mm,
+    top=15mm
+}
+\pagestyle{empty}
+
+\usepackage{sectsty}
+
+\sectionfont{                        
+    \large 
+    \fontfamily{qag}\selectfont 
+    \sectionrule{0pt}{0pt}{-5pt}{1pt}
+}
+
+\newlength{\spacebox}
+\settowidth{\spacebox}{123456789}
+
+\newcommand{\sepspace}{\vspace*{1em}}
+
+% name
+\newcommand{\name}[1]{
+\Huge % font size
+\fontfamily{phv}\selectfont % font family
+% print name centered and bold
+\begin{center} \textbf{#1} \end{center}\par
+% back to normal size and font
+\normalsize\normalfont}
+
+% motto
+\newcommand{\motto}[1]{
+  \large % font size
+  \fontfamily{phv}\selectfont % font family
+% print motto centered and slanted
+  \begin{center} \textsl{#1}\end{center}\par
+% back to normal size and font
+  \normalsize \normalfont}
+
+  % personal information
+\newcommand{\info}[2]{
+    % set specific indentation for personal information
+      \noindent\hangindent=2em\hangafter=0
+    % create a box to align two pieces of text
+      \parbox{\spacebox}{%
+      \textsl{#1}} % slanted entry name
+      #2 \par} % entry value
+
+% skill
+\newcommand{\skill}[2]{
+  % set specific indentation for personal information
+  \noindent\hangindent=2em\hangafter=0
+  % create a box to align two pieces of text
+  \parbox{3\spacebox}{% three times larger box
+    \textsc{#1}} % small caps entry name
+  % format the list with \textsl
+  \textsl{#2} \par} % entry value entry value
+
+
+% language level
+\newcommand{\lan}[2]{
+    % set specific indentation for personal information
+    \noindent\hangindent=2em\hangafter=0
+    % create a box to align two pieces of text
+    \parbox{\spacebox}{%
+        \textbf{#1}} % bold font entry name
+     #2 \par}    % entry value
+
+% education entry
+\newcommand{\education}[4]{
+
+% name of the studies
+  \noindent  \textbf{#1}
+  % at the right the duration
+    \hfill 
+    \framebox{% duration inside a frame box
+    \parbox{6em}{%
+    \centering\textbf{#2}}} \par
+ % new paragraph with the school in italics
+     \noindent \textit{#3} \par
+     % description with no hanging and in smaller text
+     \vspace*{0.5em}
+     \noindent\hangindent=2em\hangafter=0 \small #4 
+%back to normal size
+\normalsize \par}
+
+% work experience
+
+\newcommand{\work}[4]{
+% name of the work
+  \noindent  \textbf{#1}
+% at the right the duration
+  \hfill 
+\framebox{% duration inside a frame box
+  \parbox{6em}{%
+  \centering\textbf{#2}}} \par
+% new paragraph with the work in italics
+  \noindent \textit{#3} \par
+% description with no hanging and in smaller text
+  \vspace*{0.5em}
+  \noindent\hangindent=2em\hangafter=0 \small #4 
+%back to normal size
+\normalsize \par}
+
+% acomplishment entry
+\newcommand{\acomplishment}[1]{
+
+% name of the acomplishment
+  \noindent  \textbf{#1}
+  
+\normalsize \par}
+
+% project entry
+\newcommand{\project}[1]{
+
+% name of the acomplishment
+  \noindent  \textbf{#1}
+  
+\normalsize \par}
+
+\begin{document}
+
+% name and motto
+\name{Marko Jovanović}
+\vspace*{-10pt}
+\motto{Hard work beats talent if talent doesn't work hard}
+
+% personal information
+
+\sepspace
+\info{Email}{\texttt{remaxsrb@protonmail.com}}
+\info{Phone}{+381654340122}
+\info{Address}{Praška 34}
+\info{Github}{\texttt{https://github.com/remaxsrb}}
+
+% % work experience
+\section*{Work Experience}
+
+% \work{Lecturer}{2015--2020}{The XXX University}{\blindtext}
+
+% \sepspace
+
+% \work{Data Analyist}{2010--2015}{An important tech
+% company}{This is a detailed description of the this
+% work:
+
+% \begin{itemize}
+%     \item One thing I did.
+%     \item Another thing I did.
+%     \item I didn't do much more, sorry.
+% \end{itemize}}
+
+% education
+
+\section*{Education}
+
+\education{Current 4th year student at University of Belgrade, School of Electrical engineering}{2018--}{}
+
+\section*{Acomplishments}
+
+\acomplishment{Winner of 2022 Nordeus QA Code Challenge}
+
+\sepspace
+
+\section*{Projects}
+
+\project{OS kernel for RISC-V processor written in C/C++}
+
+\project{Compiler for custom Microjava language written in Java}
+
+\project{Warehouse managment system written in Python using Docker containers, Redis and RESTful services}
+
+\project{Webstore transaction system written in Java using JMS, JPA and RESTful services}
+
+\project{Photo editor application wrriten in C++ with GUI beeing implemnted using Java awt package}
+
+
+
+
+\sepspace
+
+% technical skills
+\section*{Technical skills}
+
+\skill{Programming languages}{
+  \textsc{C}, \textsc{C++}, \textsc{Java}, \textsc{Python}}
+\skill{Other}{
+  \textsl{SQL, Markdown, Git, Linux, Docker}}
+
+% languages
+\section*{Languages}
+\lan{Serbian}{Native}
+\lan{English}{Fluent}
+
+\end{document}
